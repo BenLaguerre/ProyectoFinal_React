@@ -11,3 +11,5 @@ function App() {
 }
 
 export default App;
+
+//aquí llamar al componente lechones-gustados el nuemro de veces que lechones haya en el arrayLikes
