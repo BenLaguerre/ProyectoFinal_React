@@ -3,18 +3,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3rem;
     margin: auto;
 }
 
-p{
+.texto-animado{
     text-align: center;
     font-size: 1rem;
     animation: blink 3s linear 1;
     
 }
 
-img{
+.logo-animado{
     width: 500px;
     margin: auto;
     animation: blink 3s linear 1;
