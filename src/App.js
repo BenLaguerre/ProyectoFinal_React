@@ -1,15 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import DetailleLechon from './components/detalle-lechon/detalle-lechon';
+import LechonesGustados from './components/lechones-gustados/lechones-gustados'
 
 function App() {
   return (
     <div className="App">
-      <DetailleLechon />
+      <LechonesGustados />
+      
     </div>
   );
 }
 
 export default App;
-
-//aquí llamar al componente lechones-gustados el nuemro de veces que lechones haya en el arrayLikes
