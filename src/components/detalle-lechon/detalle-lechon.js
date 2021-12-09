@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
   
   /*getStatus(){
@@ -7,9 +8,10 @@ import axios from "axios";
     }*/
 
 export default function DetailleLechon() {
-  
+  let { id } = useParams();
+
   useEffect(() => {
-    cargarDetaille(5)
+    cargarDetaille(id)
   }, []);
 
   const [perfil, setPerfil] = useState([]);
