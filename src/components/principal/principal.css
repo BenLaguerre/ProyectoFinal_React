@@ -1,0 +1,42 @@
+.container-img{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    margin: auto;
+}
+
+p{
+    text-align: center;
+    font-size: 1rem;
+    animation: blink 3s linear 1;
+    
+}
+
+img{
+    width: 500px;
+    margin: auto;
+    animation: blink 3s linear 1;
+}
+
+.logo-heartbeat{
+    width: 20rem;
+    opacity: 100;
+    font-size: 25px;
+    font-family: cursive;
+    color: white;
+    animation: blink 0.7s linear 2;
+    margin: auto;
+}
+
+.hidden{
+    display: none;
+}
+
+@keyframes blink{
+0%{opacity: 0;}
+15%{opacity: .5; transform:scale(1.02);}
+50%{opacity: .3;}
+100%{opacity: 1;}
+}

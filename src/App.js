@@ -5,7 +5,7 @@ import axios from "axios";
 import DetailleLechon from './components/detalle-lechon/detalle-lechon';
 import { BrowserRouter as Router, Routes, Route } from  "react-router-dom";
 import LechonesGustados from './components/lechones-gustados/lechones-gustados'
-
+import Principal from './components/principal/principal'
 
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
     <Header />
     <main className="Box">
 					<Routes>
+            <Route path="/" element={<Principal />} />
 						<Route path="/Likes" element={<LechonesGustados />} />
 						<Route exact path="/detalle-lechon/:id" element={<DetailleLechon />} />
 					</Routes>
