@@ -1,11 +1,20 @@
+<<<<<<< HEAD
 import logo from './logo.svg';
 import React, { useEffect, useState } from "react";
+=======
+import Header from './components/header/header';
+>>>>>>> 5ae22e197c104bb2e03e11a25cd4eac49a85f07e
 import './App.css';
 import LechonGustado from './components/lechones-gustados/lechones-gustados';
 import axios from "axios";
 import DetailleLechon from './components/detalle-lechon/detalle-lechon';
+import { BrowserRouter as Router, Routes, Route } from  "react-router-dom";
+import LechonesGustados from './components/lechones-gustados/lechones-gustados'
+
+
 
 function App() {
+<<<<<<< HEAD
   
   /*const [lechonLike, setLechonLike] = useState([]);
   
@@ -36,7 +45,25 @@ function App() {
     );
   }
 
+=======
+  return (
+    <>
+    <Header />
+    <Router>
+    <main className="Box">
+					<Routes>
+						<Route path="/Likes" element={<LechonesGustados />} />
+						<Route exact path="/detalle-lechon/:id" element={<DetailleLechon />} />
+					</Routes>
+				</main>
+    <div className="App">
+    <LechonesGustados />
+    </div>
+    </Router>
+    </>
+  );
+}
+>>>>>>> 5ae22e197c104bb2e03e11a25cd4eac49a85f07e
 
 export default App;
 
-//aquí llamar al componente lechones-gustados el nuemro de veces que lechones haya en el arrayLikes
