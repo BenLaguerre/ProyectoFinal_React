@@ -76,7 +76,7 @@ class LechonesGustados extends React.Component {
                 ))
             ) : (
               <tr>
-                <td colSpan={5}>--- No existen libros aún ---</td>
+                <td colSpan={5}>--- No te ha gustado ningún lechoncito ---</td>
               </tr>
             )}
           </div>
