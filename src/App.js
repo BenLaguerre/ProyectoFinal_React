@@ -1,5 +1,7 @@
 import Header from './components/header/header';
 import './App.css';
+import LechonGustado from './components/lechones-gustados/lechones-gustados';
+import axios from "axios";
 import DetailleLechon from './components/detalle-lechon/detalle-lechon';
 import { BrowserRouter as Router, Routes, Route } from  "react-router-dom";
 import LechonesGustados from './components/lechones-gustados/lechones-gustados'
@@ -18,7 +20,7 @@ function App() {
 					</Routes>
 				</main>
     <div className="App">
-    <LechonesGustados />
+    
     </div>
     </Router>
     </>
