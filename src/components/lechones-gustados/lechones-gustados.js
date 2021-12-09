@@ -11,24 +11,37 @@ class LechonesGustados extends React.Component {
       miPerfil: [],
       lechon: [],
       arrayLechones: [],
-      currentBook: null,
+      prueba: [],
     };
   }
-  componentDidMount() {
-    
-    axios.get(`http://localhost:8000/detalle-perfil/22`).then((res) => {
+  async componentDidMount() {
+    await axios.get(`http://localhost:8000/detalle-perfil/23`).then((res) => {
       const miPerfil = res.data[0].arrayLikes;
       this.setState({ miPerfil });
+      //array con los mails
       console.log(miPerfil);
     });
-    
-    setTimeout(() => {
-      console.log(this.state.miPerfil.length);
-      this.crearArray();
-      console.log(this.state.arrayLechones);
-    }, 1000);
+    //voy a esperar para crear el array
+    await this.crearArray();
+
+    console.log(this.state.miPerfil.length);
+
+    console.log(this.state.arrayLechones);
+    console.log(this.state.arrayLechones.length);
   }
 
+  async crearArray() {
+    console.log("imprimiendo miPerfil" + this.state.miPerfil);
+    for (let i = 0; i < this.state.miPerfil.length; i++) {
+      await this.cargarDetaille(this.state.miPerfil[i]);
+
+      console.log(this.state.lechon);
+      this.state.arrayLechones.push(this.state.lechon);
+    }
+    console.log("creara el array?" + JSON.stringify(this.state.arrayLechones));
+  }
+
+  //hacemos asincrona la carga del detalle para que espere
   async cargarDetaille(email) {
     await axios
       .get(`http://localhost:8000/detalle-perfil`, { params: { email: email } })
@@ -41,69 +54,38 @@ class LechonesGustados extends React.Component {
       });
   }
 
-  crearArray() {
-    for (let i = 0; i < this.state.miPerfil.length; i++) {
-      this.cargarDetaille(this.state.miPerfil[i]);
-      setTimeout(() => {
-        this.state.arrayLechones.push(this.state.lechon);
-      }, 1000);
-    }
-  }
-  cargarRender(){
-    setTimeout(()=>{
-            return (
-              <div className="table-responsive">
-                <table className="table table-bordered">
-                  <tbody>
-                    {this.state.arrayLechones.length > 0 ? (
-                      this.state.arrayLechones.map((lechon) => (
-                        <tr key={lechon}>
-                          <th scope="row">{this.state.lechon.name}</th>
-                          <td>{this.state.lechon.name}</td>
-                        </tr>
-                      ))
-                    ) : (
-                      <tr>
-                        <td colSpan={5}>--- No existen libros aún ---</td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
+  render() {
+    return (
+      <div className="main-container">
+      <h2>hello there</h2>
+          <div className="listaLechoncitos">
+            {this.state.arrayLechones.length > 0 ? (
+              this.state.arrayLechones.map((lechon) => (
+                <div className="lechon-container" >
+                    <div class="img-container">
+                        <img src="{{like[0].image}}" alt="imagen lechoncito gustado"/>
+                    </div>
+                    <div className="inforLechon">
+                        <p>Ciudad: {lechon.city}</p>
+                        <p>Edad: {lechon.age}</p>
+                    </div>
+                    <Link className="boton" to={`../detalle-lechon/${lechon.id}`}>
+												    Mostrar detalle
+								    </Link>
+                </div>
+                ))
+            ) : (
+              <tr>
+                <td colSpan={5}>--- No existen libros aún ---</td>
+              </tr>
+            )}
+          </div>
+ 
+      </div>
         
-              /*
-            <div class="main-container">
-              <h2>hello there</h2>
-              <div class="lechon-container">
-                <div class="img-container">
-                  <img className='mat-card-image' src={lechon.image} alt='imagencita' />
-                </div>
-                <div>
-                  <Link className="boton" to={`../detalle-lechon/${lechon.id}`}>
-                    {lechon.name.firstName}
-                  </Link>
-                </div>
-                <div>
-                  <p>Ciudad:{lechon.city}</p>
-                  <p>Edad: {lechon.age}</p>
-                </div>
-              </div>
-              </div>
-              */
-            );
-          
-    },1000);
-  }
-  render(){
-      if(!this.cargarRender()){
-        console.log("pos no")
-          return null
-          
-      }else{
-        return this.cargarRender();
-      }
+      
+    );
   }
 }
-//}
 
 export default LechonesGustados;
