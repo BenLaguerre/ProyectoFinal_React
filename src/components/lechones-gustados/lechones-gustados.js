@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Router } from "react-router";
+import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 class LechonesGustados extends React.Component {
-  //Realmente era lo ue había en Angular (Solo he añadido lo del estado)
+  //Realmente era lo que había en Angular (Solo he añadido lo del estado)
   constructor(props) {
     super(props);
     this.state = {
@@ -15,34 +14,28 @@ class LechonesGustados extends React.Component {
       prueba: [],
     };
   }
+
+  //método para traer el arrayLikes del perfil con id 23 y guardarlo en el state miPerfil
   async componentDidMount() {
     await axios.get(`http://localhost:8000/detalle-perfil/23`).then((res) => {
       const miPerfil = res.data[0].arrayLikes;
-      this.setState({ miPerfil });
-      //array con los mails
-      console.log(miPerfil);
+      this.setState({ miPerfil });  
     });
     //voy a esperar para crear el array
     await this.crearArray();
-
-    console.log(this.state.miPerfil.length);
-
-    console.log(this.state.arrayLechones);
-    console.log(this.state.arrayLechones.length);
   }
 
+  //método para meter a cada lechon que se carga en el state arrayLechones 
   async crearArray() {
     console.log("imprimiendo miPerfil" + this.state.miPerfil);
     for (let i = 0; i < this.state.miPerfil.length; i++) {
       await this.cargarDetaille(this.state.miPerfil[i]);
-
-      console.log(this.state.lechon);
       this.state.arrayLechones.push(this.state.lechon);
     }
     console.log("creara el array?" + JSON.stringify(this.state.arrayLechones));
   }
 
-  //hacemos asincrona la carga del detalle para que espere
+  //método para traer un perfil mediante su email y meterlo en el state lechon
   async cargarDetaille(email) {
     await axios
       .get(`http://localhost:8000/detalle-perfil`, { params: { email: email } })
