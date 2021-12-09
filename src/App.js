@@ -2,15 +2,16 @@ import Header from './components/header/header';
 import './App.css';
 import DetailleLechon from './components/detalle-lechon/detalle-lechon';
 import { BrowserRouter as Router } from  "react-router-dom";
+import LechonesGustados from './components/lechones-gustados/lechones-gustados'
+
 
 function App() {
   return (
     <>
     <Router>
     <Header />
-    
     <div className="App">
-      <DetailleLechon />
+    <LechonesGustados />
     </div>
     </Router>
     </>
@@ -18,5 +19,3 @@ function App() {
 }
 
 export default App;
-
-//aquí llamar al componente lechones-gustados el nuemro de veces que lechones haya en el arrayLikes
