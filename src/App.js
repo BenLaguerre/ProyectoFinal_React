@@ -1,13 +1,19 @@
 import Header from './components/header/header';
 import './App.css';
 import DetailleLechon from './components/detalle-lechon/detalle-lechon';
+import { BrowserRouter as Router } from  "react-router-dom";
 
 function App() {
   return (
-    <><Header />
+    <>
+    <Router>
+    <Header />
+    
     <div className="App">
       <DetailleLechon />
-    </div></>
+    </div>
+    </Router>
+    </>
   );
 }
 
