@@ -60,6 +60,7 @@ class LechonesGustados extends React.Component {
                   <img src={lechon.image} alt="imagen lechoncito gustado" />
                 </div>
                 <div className="infoLechon">
+                  <h2>{lechon.name.firstName}</h2>
                   <p>Ciudad: {lechon.city}</p>
                   <p>Edad: {lechon.age}</p>
                 </div>
