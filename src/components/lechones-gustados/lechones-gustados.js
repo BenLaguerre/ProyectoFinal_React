@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 class LechonesGustados extends React.Component {
-  //Realmente era lo que había en Angular (Solo he añadido lo del estado)
+  
   constructor(props) {
     super(props);
     this.state = {
