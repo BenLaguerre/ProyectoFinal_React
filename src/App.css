@@ -1,3 +1,7 @@
+*{
+  text-align: center;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+div img {
+  padding: 2em;
 }

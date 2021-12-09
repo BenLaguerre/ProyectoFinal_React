@@ -9,8 +9,8 @@ import LechonesGustados from './components/lechones-gustados/lechones-gustados'
 function App() {
   return (
     <>
-    <Header />
     <Router>
+    <Header />
     <main className="Box">
 					<Routes>
 						<Route path="/Likes" element={<LechonesGustados />} />
