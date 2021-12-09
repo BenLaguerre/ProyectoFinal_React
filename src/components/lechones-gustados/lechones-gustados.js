@@ -63,9 +63,9 @@ class LechonesGustados extends React.Component {
               this.state.arrayLechones.map((lechon) => (
                 <div className="lechon-container" >
                     <div class="img-container">
-                        <img src="{{like[0].image}}" alt="imagen lechoncito gustado"/>
+                        <img src={lechon.image} alt="imagen lechoncito gustado"/>
                     </div>
-                    <div className="inforLechon">
+                    <div className="infoLechon">
                         <p>Ciudad: {lechon.city}</p>
                         <p>Edad: {lechon.age}</p>
                     </div>
