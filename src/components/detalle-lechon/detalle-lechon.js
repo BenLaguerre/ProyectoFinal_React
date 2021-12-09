@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import './detalle-lechon.css';
   
   /*getStatus(){
     let status = sessionStorage.getItem("status")
