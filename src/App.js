@@ -1,12 +1,13 @@
-import logo from './logo.svg';
+import Header from './components/header/header';
 import './App.css';
 import DetailleLechon from './components/detalle-lechon/detalle-lechon';
 
 function App() {
   return (
+    <><Header />
     <div className="App">
       <DetailleLechon />
-    </div>
+    </div></>
   );
 }
 
