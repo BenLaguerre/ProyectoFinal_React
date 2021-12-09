@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./lechonesGustadosEstilos.css";
 
 class LechonesGustados extends React.Component {
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -19,13 +19,13 @@ class LechonesGustados extends React.Component {
   async componentDidMount() {
     await axios.get(`http://localhost:8000/detalle-perfil/23`).then((res) => {
       const miPerfil = res.data[0].arrayLikes;
-      this.setState({ miPerfil });  
+      this.setState({ miPerfil });
     });
     //voy a esperar para crear el array
     await this.crearArray();
   }
 
-  //método para meter a cada lechon que se carga en el state arrayLechones 
+  //método para meter a cada lechon que se carga en el state arrayLechones
   async crearArray() {
     console.log("imprimiendo miPerfil" + this.state.miPerfil);
     for (let i = 0; i < this.state.miPerfil.length; i++) {
@@ -51,33 +51,30 @@ class LechonesGustados extends React.Component {
   render() {
     return (
       <div className="main-container">
-      <h2>hello there</h2>
-          <div className="listaLechoncitos">
-            {this.state.arrayLechones.length > 0 ? (
-              this.state.arrayLechones.map((lechon) => (
-                <div className="lechon-container" >
-                    <div class="img-container">
-                        <img src={lechon.image} alt="imagen lechoncito gustado"/>
-                    </div>
-                    <div className="infoLechon">
-                        <p>Ciudad: {lechon.city}</p>
-                        <p>Edad: {lechon.age}</p>
-                    </div>
-                    <Link className="boton" to={`../detalle-lechon/${lechon.id}`}>
-												    Mostrar detalle
-								    </Link>
+        <h2>hello there</h2>
+        <div className="listaLechoncitos">
+          {this.state.arrayLechones.length > 0 ? (
+            this.state.arrayLechones.map((lechon) => (
+              <div className="lechon-container">
+                <div class="img-container">
+                  <img src={lechon.image} alt="imagen lechoncito gustado" />
                 </div>
-                ))
-            ) : (
-              <tr>
-                <td colSpan={5}>--- No te ha gustado ningún lechoncito ---</td>
-              </tr>
-            )}
-          </div>
- 
+                <div className="infoLechon">
+                  <p>Ciudad: {lechon.city}</p>
+                  <p>Edad: {lechon.age}</p>
+                </div>
+                <Link className="boton" to={`../detalle-lechon/${lechon.id}`}>
+                  Mostrar detalle
+                </Link>
+              </div>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={5}>--- No te ha gustado ningún lechoncito ---</td>
+            </tr>
+          )}
+        </div>
       </div>
-        
-      
     );
   }
 }

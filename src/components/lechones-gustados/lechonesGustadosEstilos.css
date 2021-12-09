@@ -1,0 +1,40 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lechon-container {
+  padding: 12px 8px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.infoLechon {
+  color: #e9dcff;
+  width: 200px;
+
+  padding-top: 1rem;
+}
+
+.boton {
+  background-color: #9162e4;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 4px;
+  color: #e9dcff;
+  font-weight: 350;
+  letter-spacing: -2px;
+  text-shadow: 0.2rem 0.2rem 0.3rem rgba(0, 0, 0, 0.2);
+}
+.boton:hover {
+  color: #e9dcff;
+  background-color: #5e35b1;
+  padding: 10px;
+  border-radius: 4px;
+  text-shadow: 0.5rem 0.5rem 0.6rem rgba(0, 0, 0, 0.2);
+}
